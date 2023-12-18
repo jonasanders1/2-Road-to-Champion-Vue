@@ -1,12 +1,35 @@
 <template>
-  <div class="container">
-    <h3 class="title">Drawn Conclusions</h3>
-    <div class="image-container">
-      <img src="./assets/pun.webp" class="image" />
+  <div class="app">
+    <div class="main-container">
+      <div class="main-content">
+        <h3 class="title">Drawn Conclusions</h3>
+        <div class="image-container">
+          <img src="./assets/pun.webp" class="image" />
+        </div>
+        <div class="input-container">
+          <input v-model="prompt" placeholder="Enter a prompt" class="input">
+          <button class="button">Submit</button>
+        </div>
+      </div>
     </div>
-    <div class="input-container">
-      <input v-model="prompt" placeholder="Enter a prompt" class="input">
-      <button class="button">Submit</button>
+    <div class="log-container">
+      <div class="log">
+        <h3 class="log-title">Results log</h3>
+        <div class="results">
+          <div class="guess">
+            <p class="user-guess">Ant with brain</p>
+            <p class="guess-state wrong">Wrong</p>
+          </div>
+          <div class="guess">
+            <p class="user-guess">Ant with brain</p>
+            <p class="guess-state wrong">Wrong</p>
+          </div>
+          <div class="guess">
+            <p class="user-guess">Ant with brain</p>
+            <p class="guess-state correct">Correct</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -106,15 +129,72 @@ export default {
   font-weight: 400;
 }
 
-.container {
-  margin: auto;
-  height: 90vh;
+.app {
+  padding: 26px;
+  display: flex;
   width: 100%;
+  height: 85vh;
+  gap: 20px;
+}
+
+.main-container {
+  display: flex;
+  flex: 2;
+  justify-content: end;
+}
+
+.log-container {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  margin-top: 68px;
+}
+
+.log {
+  background-color: rgb(95, 95, 95);
+  border-radius: 8px;
+  height: 300px;
+  width: 80%;
+  padding: 10px;
+  color: white;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 20px;
-  max-width: 500px;
+}
+.log-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.results {
+  flex: 1;
+  padding: 10px;
+  border-top: 2px solid rgb(152, 152, 152);
+}
+.guess {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgb(74, 74, 74);
+  font-weight: 500;
+}
+.user-guess {
+  color: white;
+}
+.guess-state {
+  font-weight: 600;
+}
+.wrong {
+  color: rgb(255, 110, 110);
+}
+.correct {
+  color: rgb(141, 255, 110);
+}
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: space-between;
+  width: 500px;
 }
 
 .title {
@@ -140,6 +220,8 @@ export default {
   border-radius: 8px;
   box-shadow: 3px 6px 8px rgba(0, 0, 0, 0.2);
 }
+
+
 
 .input-container {
   width: 100%;
